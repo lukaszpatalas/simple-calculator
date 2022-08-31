@@ -27,3 +27,12 @@ const operate = function (operator, num1, num2) {
         console.log("Improper operator, try again.");
     }
 }
+
+let numberButton = document.querySelectorAll('.number');
+let lowerDisplay = document.querySelector('.lowerDisplay p');
+let currentValue = null;
+
+for (number of numberButton) {
+    number.addEventListener('click',  populateLowerDisplay);
+}
+
