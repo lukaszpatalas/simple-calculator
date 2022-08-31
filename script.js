@@ -33,10 +33,22 @@ const populateLowerDisplay = function (button) {
     currentValue = this.textContent;
 }
 
+const populateUpperDisplay = function(button) {
+    upperDisplay.textContent = currentValue + " " + this.textContent;
+    currentOperator = this.textContent;
+}
+
 let numberButton = document.querySelectorAll('.number');
+let operatorButton = document.querySelectorAll('.operator');
 let lowerDisplay = document.querySelector('.lowerDisplay p');
-let currentValue = null;
+let upperDisplay = document.querySelector('.upperDisplay p');
+let currentValue = 0;
+let currentOperator = null;
 
 for (number of numberButton) {
     number.addEventListener('click', populateLowerDisplay);
+}
+
+for (operator of operatorButton) {
+    operator.addEventListener('click', populateUpperDisplay);
 }
