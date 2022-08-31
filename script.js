@@ -33,7 +33,7 @@ const populateLowerDisplay = function (button) {
     currentValue = this.textContent;
 }
 
-const populateUpperDisplay = function(button) {
+const populateUpperDisplay = function (button) {
     upperDisplay.textContent = currentValue + " " + this.textContent;
     currentOperator = this.textContent;
 }
@@ -44,6 +44,8 @@ let lowerDisplay = document.querySelector('.lowerDisplay p');
 let upperDisplay = document.querySelector('.upperDisplay p');
 let currentValue = 0;
 let currentOperator = null;
+
+// Check if you can make one for loop that create addEventListener for all types of buttons
 
 for (number of numberButton) {
     number.addEventListener('click', populateLowerDisplay);
