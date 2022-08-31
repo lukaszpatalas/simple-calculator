@@ -28,11 +28,15 @@ const operate = function (operator, num1, num2) {
     }
 }
 
+const populateLowerDisplay = function (button) {
+    lowerDisplay.textContent = this.textContent;
+    currentValue = this.textContent;
+}
+
 let numberButton = document.querySelectorAll('.number');
 let lowerDisplay = document.querySelector('.lowerDisplay p');
 let currentValue = null;
 
 for (number of numberButton) {
-    number.addEventListener('click',  populateLowerDisplay);
+    number.addEventListener('click', populateLowerDisplay);
 }
-
