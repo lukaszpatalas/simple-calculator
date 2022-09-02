@@ -38,19 +38,16 @@ const populateUpperDisplay = function (button) {
     currentOperator = this.textContent;
 }
 
-let numberButton = document.querySelectorAll('.number');
-let operatorButton = document.querySelectorAll('.operator');
+let buttons = document.querySelectorAll('button');
 let lowerDisplay = document.querySelector('.lowerDisplay p');
 let upperDisplay = document.querySelector('.upperDisplay p');
 let currentValue = 0;
 let currentOperator = null;
 
-// Check if you can make one for loop that create addEventListener for all types of buttons
-
-for (number of numberButton) {
-    number.addEventListener('click', populateLowerDisplay);
-}
-
-for (operator of operatorButton) {
-    operator.addEventListener('click', populateUpperDisplay);
+for (button of buttons) {
+    if (button.className === "number") {
+        button.addEventListener('click', populateLowerDisplay);
+    } else if (button.className === "operator") {
+        button.addEventListener('click', populateUpperDisplay);
+    }
 }
