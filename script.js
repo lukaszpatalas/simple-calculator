@@ -41,7 +41,7 @@ const populateUpperDisplay = function (button) {
 let buttons = document.querySelectorAll('button');
 let lowerDisplay = document.querySelector('.lowerDisplay p');
 let upperDisplay = document.querySelector('.upperDisplay p');
-let currentValue = 0;
+let number1 = 0;
 let currentOperator = null;
 
 for (button of buttons) {
