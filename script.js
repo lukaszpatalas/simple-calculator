@@ -50,9 +50,9 @@ const operate = function (operator, num1, num2) {
 const populateLowerDisplay = function (button) {
     lowerDisplay.textContent = this.textContent;
     if (number1 === null) {
-        number1 = this.textContent;
+        number1 = parseInt(this.textContent);
     } else {
-        number2 = this.textContent;
+        number2 = parseInt(this.textContent);
         number1 = operate(currentOperator, number1, number2);
     }
 }
