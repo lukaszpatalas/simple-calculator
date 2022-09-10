@@ -48,13 +48,18 @@ const operate = function (operator, num1, num2) {
 }
 
 const updateDisplay = function (button) {
-    display.innerText = this.innerText;
+    display.innerText = button;
 }
 
-for (button of buttons) {
-    if (button.className === "number") {
-        button.addEventListener('click', updateDisplay);
-    } else if (button.className === "operator") {
-        button.addEventListener('click', updateDisplay);
-    }
-}
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        updateDisplay(button.innerText);
+    })
+})
+
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        updateDisplay(button.innerText);
+    })
+})
+
