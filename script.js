@@ -1,3 +1,9 @@
+let buttons = document.querySelectorAll('button');
+let lowerDisplay = document.querySelector('.lowerDisplay p');
+let upperDisplay = document.querySelector('.upperDisplay p');
+let currentValue = 0;
+let currentOperator = null;
+
 const add = function (num1, num2) {
     return num1 + num2;
 };
@@ -37,12 +43,6 @@ const populateUpperDisplay = function (button) {
     upperDisplay.textContent = currentValue + " " + this.textContent;
     currentOperator = this.textContent;
 }
-
-let buttons = document.querySelectorAll('button');
-let lowerDisplay = document.querySelector('.lowerDisplay p');
-let upperDisplay = document.querySelector('.upperDisplay p');
-let number1 = 0;
-let currentOperator = null;
 
 for (button of buttons) {
     if (button.className === "number") {
