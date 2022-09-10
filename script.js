@@ -1,5 +1,6 @@
-let buttons = document.querySelectorAll('button');
-let display = document.querySelector('.display p');
+const numberButtons = document.querySelectorAll('.number');
+const operatorButtons = document.querySelectorAll('.operator');
+const display = document.querySelector('.display p');
 let currentNumber = '';
 let previousNumber = '';
 let currentOperator = undefined;
