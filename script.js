@@ -34,13 +34,13 @@ const setOperator = function(operator) {
 }
 
 const operate = function (operator, num1, num2) {
-    if (operator === "add") {
+    if (operator === "+") {
         return add(num1, num2);
-    } else if (operator === "subtract") {
+    } else if (operator === "-") {
         return subtract(num1, num2);
-    } else if (operator === "multiply") {
+    } else if (operator === "×") {
         return multiply(num1, num2);
-    } else if (operator === "divide") {
+    } else if (operator === "÷") {
         return divide(num1, num2);
     } else {
         console.log("Improper operator, try again.");
@@ -49,7 +49,12 @@ const operate = function (operator, num1, num2) {
 
 const populateLowerDisplay = function (button) {
     lowerDisplay.textContent = this.textContent;
-    number1 = this.textContent;
+    if (number1 === null) {
+        number1 = this.textContent;
+    } else {
+        number2 = this.textContent;
+        number1 = operate(currentOperator, number1, number2);
+    }
 }
 
 const populateUpperDisplay = function (button) {
