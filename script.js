@@ -1,7 +1,8 @@
 let buttons = document.querySelectorAll('button');
 let lowerDisplay = document.querySelector('.lowerDisplay p');
 let upperDisplay = document.querySelector('.upperDisplay p');
-let currentValue = 0;
+let number1 = null;
+let number2 = null;
 let currentOperator = null;
 
 const add = function (num1, num2) {
@@ -20,6 +21,18 @@ const divide = function (num1, num2) {
     return num1 / num2;
 };
 
+const setNumber1 = function(num) {
+    number1 = num;
+}
+
+const setNumber2 = function(num) {
+    number2 = num;
+}
+
+const setOperator = function(operator) {
+    currentOperator = operator;
+}
+
 const operate = function (operator, num1, num2) {
     if (operator === "add") {
         return add(num1, num2);
@@ -36,12 +49,12 @@ const operate = function (operator, num1, num2) {
 
 const populateLowerDisplay = function (button) {
     lowerDisplay.textContent = this.textContent;
-    currentValue = this.textContent;
+    number1 = this.textContent;
 }
 
 const populateUpperDisplay = function (button) {
     currentOperator = this.textContent;
-    upperDisplay.textContent = currentValue + " " + currentOperator;
+    upperDisplay.textContent = number1 + " " + currentOperator;
 }
 
 for (button of buttons) {
