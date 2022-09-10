@@ -40,8 +40,8 @@ const populateLowerDisplay = function (button) {
 }
 
 const populateUpperDisplay = function (button) {
-    upperDisplay.textContent = currentValue + " " + this.textContent;
     currentOperator = this.textContent;
+    upperDisplay.textContent = currentValue + " " + currentOperator;
 }
 
 for (button of buttons) {
