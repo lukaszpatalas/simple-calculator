@@ -1,9 +1,8 @@
 let buttons = document.querySelectorAll('button');
-let lowerDisplay = document.querySelector('.lowerDisplay p');
-let upperDisplay = document.querySelector('.upperDisplay p');
-let number1 = null;
-let number2 = null;
-let currentOperator = null;
+let display = document.querySelector('.display p');
+let currentNumber = '';
+let previousNumber = '';
+let currentOperator = undefined;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -21,12 +20,12 @@ const divide = function (num1, num2) {
     return num1 / num2;
 };
 
-const setNumber1 = function(num) {
-    number1 = num;
+const setCurrentNumber = function(num) {
+    currentNumber = num;
 }
 
-const setNumber2 = function(num) {
-    number2 = num;
+const setPreviousNumber = function(num) {
+    previousNumber = num;
 }
 
 const setOperator = function(operator) {
@@ -47,25 +46,14 @@ const operate = function (operator, num1, num2) {
     }
 }
 
-const populateLowerDisplay = function (button) {
-    lowerDisplay.textContent = this.textContent;
-    if (number1 === null) {
-        number1 = parseInt(this.textContent);
-    } else {
-        number2 = parseInt(this.textContent);
-        number1 = operate(currentOperator, number1, number2);
-    }
-}
-
-const populateUpperDisplay = function (button) {
-    currentOperator = this.textContent;
-    upperDisplay.textContent = number1 + " " + currentOperator;
+const updateDisplay = function (button) {
+    display.textContent = this.textContent;
 }
 
 for (button of buttons) {
     if (button.className === "number") {
-        button.addEventListener('click', populateLowerDisplay);
+        button.addEventListener('click', updateDisplay);
     } else if (button.className === "operator") {
-        button.addEventListener('click', populateUpperDisplay);
+        button.addEventListener('click', updateDisplay);
     }
 }
