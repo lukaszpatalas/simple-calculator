@@ -47,7 +47,7 @@ const operate = function (operator, num1, num2) {
 }
 
 const updateDisplay = function (button) {
-    display.textContent = this.textContent;
+    display.innerText = this.innerText;
 }
 
 for (button of buttons) {
