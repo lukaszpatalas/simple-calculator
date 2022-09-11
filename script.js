@@ -22,14 +22,15 @@ const divide = function (num1, num2) {
 };
 
 const operate = function (operator, num1, num2) {
+    let computation = 0;
     if (operator === "+") {
-        return add(num1, num2);
+        computation = add(num1, num2);
     } else if (operator === "-") {
-        return subtract(num1, num2);
+        computation = subtract(num1, num2);
     } else if (operator === "×") {
-        return multiply(num1, num2);
+        computation = multiply(num1, num2);
     } else if (operator === "÷") {
-        return divide(num1, num2);
+        computation = divide(num1, num2);
     } else {
         console.log("Improper operator, try again.");
     }
@@ -47,7 +48,7 @@ const appendNumber = function (number) {
 const chooseOperator = function (operator) {
     if (currentNumber === '') return;
     if (previousNumber !== '') {
-        operate(currentOperator, currentNumber, previousNumber);
+        operate(currentOperator, parseFloat(currentNumber), parseFloat(previousNumber));
     }
     currentOperator = operator;
     previousNumber = currentNumber;
