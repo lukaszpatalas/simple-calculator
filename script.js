@@ -39,20 +39,31 @@ const updateDisplay = function () {
     display.innerText = currentNumber;
 }
 
-const appendNumber = function(number) {
+const appendNumber = function (number) {
     if (number === '.' && currentNumber.includes('.')) return;
     currentNumber = currentNumber.toString() + number.toString();
 }
 
+const chooseOperator = function (operator) {
+    if (currentNumber === '') return;
+    if (previousNumber !== '') {
+        operate(currentOperator, currentNumber, previousNumber);
+    }
+    currentOperator = operator;
+    previousNumber = currentNumber;
+    currentNumber = '';
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
-
+        appendNumber(button.innerText);
         updateDisplay(button.innerText);
     })
 })
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
+        chooseOperator(button.innerText);
         updateDisplay();
     })
 })
