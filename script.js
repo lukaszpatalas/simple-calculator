@@ -57,7 +57,7 @@ const chooseOperator = function (operator) {
     firstOperation = false;
     if (currentNumber === '') return;
     if (previousNumber !== '') {
-        operate(currentOperator, parseFloat(currentNumber), parseFloat(previousNumber));
+        operate(currentOperator, parseFloat(previousNumber), parseFloat(currentNumber));
     }
     currentOperator = operator;
     previousNumber = currentNumber;
