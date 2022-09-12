@@ -44,7 +44,7 @@ const updateDisplay = function () {
     if (firstOperation === true) {
         display.innerText = currentNumber; 
     } else if (currentOperator !== undefined) {
-        display.innerText = previousNumber + " " + currentOperator;
+        display.innerText = previousNumber + " " + currentOperator + " " + currentNumber;
     }
 }
 
