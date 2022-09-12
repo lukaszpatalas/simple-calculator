@@ -34,6 +34,9 @@ const operate = function (operator, num1, num2) {
     } else {
         console.log("Improper operator, try again.");
     }
+    currentNumber = computation;
+    previousNumber = '';
+    console.log(currentNumber);
 }
 
 const updateDisplay = function () {
@@ -58,7 +61,7 @@ const chooseOperator = function (operator) {
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
-        updateDisplay(button.innerText);
+        updateDisplay();
     })
 })
 
