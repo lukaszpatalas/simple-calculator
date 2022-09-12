@@ -4,6 +4,7 @@ const display = document.querySelector('.display p');
 let currentNumber = '';
 let previousNumber = '';
 let currentOperator = undefined;
+let firstOperation = true;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -40,7 +41,11 @@ const operate = function (operator, num1, num2) {
 }
 
 const updateDisplay = function () {
-    display.innerText = currentNumber;
+    if (firstOperation === true) {
+        display.innerText = currentNumber; 
+    } else if (currentOperator !== undefined) {
+        display.innerText = previousNumber + " " + currentOperator;
+    }
 }
 
 const appendNumber = function (number) {
@@ -49,6 +54,7 @@ const appendNumber = function (number) {
 }
 
 const chooseOperator = function (operator) {
+    firstOperation = false;
     if (currentNumber === '') return;
     if (previousNumber !== '') {
         operate(currentOperator, parseFloat(currentNumber), parseFloat(previousNumber));
