@@ -43,7 +43,7 @@ const operate = function (operator, num1, num2) {
 
 const updateDisplay = function () {
     if (firstOperation === true) {
-        display.innerText = currentNumber; 
+        display.innerText = currentNumber;
     } else if (currentOperator !== undefined) {
         display.innerText = previousNumber + " " + currentOperator + " " + currentNumber;
     }
@@ -63,6 +63,13 @@ const chooseOperator = function (operator) {
     currentOperator = operator;
     previousNumber = currentNumber;
     currentNumber = '';
+}
+
+const clear = function () {
+    currentNumber = '';
+    previousNumber = '';
+    currentOperator = undefined;
+    firstOperation = true;
 }
 
 numberButtons.forEach(button => {
