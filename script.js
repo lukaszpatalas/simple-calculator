@@ -43,12 +43,14 @@ const operate = function (operator, num1, num2) {
 }
 
 const appendNumber = function (number) {
-    if (number === '.' && firstNumber.includes('.')) return;
-    firstNumber = firstNumber.toString() + number.toString();
+    if (number === '.' && lowerDisplay.textContent.includes('.')) return;
+    if (lowerDisplay.textContent === "0") {
+        lowerDisplay.textContent = '';
+    } 
+    lowerDisplay.textContent += number.toString();
 }
 
 const chooseOperator = function (operator) {
-    firstOperation = false;
     if (secondNumber !== '') {
         operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
     }
@@ -63,16 +65,6 @@ const clear = function () {
     firstOperation = true;
 }
 
-const finishOperation = function () {
-    if (firstNumber === '') return;
-    if (secondNumber !== '') {
-        operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
-    }
-    secondNumber = firstNumber;
-    firstNumber = '';
-    lastOperation = true;
-}
-
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
@@ -83,9 +75,4 @@ operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         chooseOperator(button.innerText);
     })
-})
-
-equalButton.addEventListener('click', () => {
-    finishOperation();
-    clear();
 })
