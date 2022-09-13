@@ -2,8 +2,8 @@ const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const display = document.querySelector('.display p');
 const equalButton = document.querySelector('.equal');
-let currentNumber = '';
-let previousNumber = '';
+let firstNumber = '';
+let secondNumber = '';
 let currentOperator = undefined;
 let firstOperation = true;
 let lastOperation = false;
@@ -37,55 +37,59 @@ const operate = function (operator, num1, num2) {
     } else {
         console.log("Improper operator, try again.");
     }
-    currentNumber = computation;
-    previousNumber = '';
-    console.log(currentNumber);
+    firstNumber = computation;
+    secondNumber = '';
 }
 
 const updateDisplay = function () {
     if (lastOperation === true) {
-        if (previousNumber === '') {
-            display.innerText = currentNumber;
-        } else {
-            display.innerText = previousNumber;
+        if (firstNumber === '') {
+            display.innerText = "0";
+        } else if (secondNumber === '') {
+            display.innerText = firstNumber;
+        }
+        else {
+            display.innerText = secondNumber;
         }
     }
     else if (firstOperation === true) {
-        display.innerText = currentNumber;
+        display.innerText = firstNumber;
     } else if (currentOperator !== undefined) {
-        display.innerText = previousNumber + " " + currentOperator + " " + currentNumber;
+        display.innerText = secondNumber + " " + currentOperator + " " + firstNumber;
+        console.log(currentOperator);
     }
 }
 
 const appendNumber = function (number) {
-    if (number === '.' && currentNumber.includes('.')) return;
-    currentNumber = currentNumber.toString() + number.toString();
+    if (number === '.' && firstNumber.includes('.')) return;
+    firstNumber = firstNumber.toString() + number.toString();
 }
 
 const chooseOperator = function (operator) {
     firstOperation = false;
-    if (currentNumber === '') return;
-    if (previousNumber !== '') {
-        operate(currentOperator, parseFloat(previousNumber), parseFloat(currentNumber));
+    if (secondNumber !== '') {
+        operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
     }
     currentOperator = operator;
-    previousNumber = currentNumber;
-    currentNumber = '';
+    secondNumber = firstNumber;
+    firstNumber = '';
 }
 
 const clear = function () {
-    currentNumber = '';
-    previousNumber = '';
+    firstNumber = '';
+    secondNumber = '';
     currentOperator = undefined;
     firstOperation = true;
 }
 
 const finishOperation = function () {
-    if (currentNumber === '') return;
-    if (previousNumber !== '') {
-        operate(currentOperator, parseFloat(previousNumber), parseFloat(currentNumber));
+    if (firstNumber === '') return;
+    if (secondNumber !== '') {
+        operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
     }
-    lastOperation = false;
+    secondNumber = firstNumber;
+    firstNumber = '';
+    lastOperation = true;
 }
 
 numberButtons.forEach(button => {
