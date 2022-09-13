@@ -8,6 +8,7 @@ let secondNumber = '';
 let currentOperator = undefined;
 let firstOperation = true;
 let lastOperation = false;
+let resetScreen = false;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -44,25 +45,29 @@ const operate = function (operator, num1, num2) {
 
 const appendNumber = function (number) {
     if (number === '.' && lowerDisplay.textContent.includes('.')) return;
+    if (resetScreen === true) {
+        reset();
+    }
     if (lowerDisplay.textContent === "0") {
-        lowerDisplay.textContent = '';
-    } 
+        reset();
+    }
     lowerDisplay.textContent += number.toString();
+}
+
+const reset = function () {
+    lowerDisplay.textContent = '';
+    resetScreen = false;
 }
 
 const chooseOperator = function (operator) {
     if (secondNumber !== '') {
         operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
     }
+    firstNumber = lowerDisplay.textContent;
     currentOperator = operator;
-    display.innerText = firstNumber + " " + currentOperator;
-}
-
-const clear = function () {
-    firstNumber = '';
-    secondNumber = '';
-    currentOperator = undefined;
-    firstOperation = true;
+    upperDisplay.innerText = firstNumber + " " + currentOperator;
+    lowerDisplay.innerText = firstNumber;
+    resetScreen = true;
 }
 
 numberButtons.forEach(button => {
