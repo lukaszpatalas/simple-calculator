@@ -41,25 +41,6 @@ const operate = function (operator, num1, num2) {
     secondNumber = '';
 }
 
-const updateDisplay = function () {
-    if (lastOperation === true) {
-        if (firstNumber === '') {
-            display.innerText = "0";
-        } else if (secondNumber === '') {
-            display.innerText = firstNumber;
-        }
-        else {
-            display.innerText = secondNumber;
-        }
-    }
-    else if (firstOperation === true) {
-        display.innerText = firstNumber;
-    } else if (currentOperator !== undefined) {
-        display.innerText = secondNumber + " " + currentOperator + " " + firstNumber;
-        console.log(currentOperator);
-    }
-}
-
 const appendNumber = function (number) {
     if (number === '.' && firstNumber.includes('.')) return;
     firstNumber = firstNumber.toString() + number.toString();
@@ -71,8 +52,7 @@ const chooseOperator = function (operator) {
         operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
     }
     currentOperator = operator;
-    secondNumber = firstNumber;
-    firstNumber = '';
+    display.innerText = firstNumber + " " + currentOperator;
 }
 
 const clear = function () {
@@ -95,19 +75,16 @@ const finishOperation = function () {
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
-        updateDisplay();
     })
 })
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         chooseOperator(button.innerText);
-        updateDisplay();
     })
 })
 
 equalButton.addEventListener('click', () => {
     finishOperation();
-    updateDisplay();
     clear();
 })
