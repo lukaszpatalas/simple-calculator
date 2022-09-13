@@ -80,6 +80,14 @@ const clear = function () {
     firstOperation = true;
 }
 
+const finishOperation = function () {
+    if (currentNumber === '') return;
+    if (previousNumber !== '') {
+        operate(currentOperator, parseFloat(previousNumber), parseFloat(currentNumber));
+    }
+    lastOperation = false;
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
@@ -96,4 +104,6 @@ operatorButtons.forEach(button => {
 
 equalButton.addEventListener('click', () => {
     finishOperation();
+    updateDisplay();
+    clear();
 })
