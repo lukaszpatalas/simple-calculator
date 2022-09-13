@@ -1,11 +1,12 @@
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
 const display = document.querySelector('.display p');
-const equal = document.querySelector('.equal');
+const equalButton = document.querySelector('.equal');
 let currentNumber = '';
 let previousNumber = '';
 let currentOperator = undefined;
 let firstOperation = true;
+let lastOperation = false;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -42,7 +43,14 @@ const operate = function (operator, num1, num2) {
 }
 
 const updateDisplay = function () {
-    if (firstOperation === true) {
+    if (lastOperation === true) {
+        if (previousNumber === '') {
+            display.innerText = currentNumber;
+        } else {
+            display.innerText = previousNumber;
+        }
+    }
+    else if (firstOperation === true) {
         display.innerText = currentNumber;
     } else if (currentOperator !== undefined) {
         display.innerText = previousNumber + " " + currentOperator + " " + currentNumber;
@@ -84,4 +92,8 @@ operatorButtons.forEach(button => {
         chooseOperator(button.innerText);
         updateDisplay();
     })
+})
+
+equalButton.addEventListener('click', () => {
+    finishOperation();
 })
