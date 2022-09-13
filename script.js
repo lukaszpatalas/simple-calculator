@@ -1,6 +1,7 @@
 const numberButtons = document.querySelectorAll('.number');
 const operatorButtons = document.querySelectorAll('.operator');
-const display = document.querySelector('.display p');
+const lowerDisplay = document.querySelector('.lowerDisplay');
+const upperDisplay = document.querySelector('.upperDisplay');
 const equalButton = document.querySelector('.equal');
 let firstNumber = '';
 let secondNumber = '';
