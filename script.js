@@ -67,8 +67,11 @@ const chooseOperator = function (operator) {
 }
 
 const prepare = function () {
+    if (currentOperator === undefined) return;
+    if (resetScreen === true) return;
     secondNumber = lowerDisplay.textContent;
     lowerDisplay.textContent = Math.round(operate(currentOperator, parseFloat(firstNumber), parseFloat(secondNumber)) * 1000) / 1000;
+    upperDisplay.textContent = firstNumber + " " + currentOperator + " " + secondNumber + " " + "=";
     currentOperator = undefined;
 }
 
@@ -84,4 +87,8 @@ operatorButtons.forEach(button => {
         chooseOperator(button.innerText);
         operatorClickedAgain = true;
     })
+})
+
+equalButton.addEventListener('click', () => {
+    prepare();
 })
