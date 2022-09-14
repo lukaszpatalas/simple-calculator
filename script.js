@@ -6,8 +6,6 @@ const equalButton = document.querySelector('.equal');
 let firstNumber = '';
 let secondNumber = '';
 let currentOperator = undefined;
-let firstOperation = true;
-let lastOperation = false;
 let resetScreen = false;
 
 const add = function (num1, num2) {
@@ -27,20 +25,17 @@ const divide = function (num1, num2) {
 };
 
 const operate = function (operator, num1, num2) {
-    let computation = 0;
     if (operator === "+") {
-        computation = add(num1, num2);
+        return add(num1, num2);
     } else if (operator === "-") {
-        computation = subtract(num1, num2);
+        return subtract(num1, num2);
     } else if (operator === "×") {
-        computation = multiply(num1, num2);
+        return multiply(num1, num2);
     } else if (operator === "÷") {
-        computation = divide(num1, num2);
+        return divide(num1, num2);
     } else {
         console.log("Improper operator, try again.");
     }
-    firstNumber = computation;
-    secondNumber = '';
 }
 
 const appendNumber = function (number) {
@@ -66,7 +61,6 @@ const chooseOperator = function (operator) {
     firstNumber = lowerDisplay.textContent;
     currentOperator = operator;
     upperDisplay.innerText = firstNumber + " " + currentOperator;
-    lowerDisplay.innerText = firstNumber;
     resetScreen = true;
 }
 
