@@ -45,7 +45,7 @@ const appendNumber = function (number) {
     if (resetScreen === true) {
         reset();
     }
-    if (lowerDisplay.textContent === "0") {
+    if (lowerDisplay.textContent === "0" && number !== '.') {
         reset();
     }
     lowerDisplay.textContent += number.toString();
