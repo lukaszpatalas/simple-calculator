@@ -95,3 +95,8 @@ equalButton.addEventListener('click', () => {
         resetScreen = true;
     }
 })
+
+// 1. Add functionality to clear button
+// 2. Add functionality to delete button
+// 3. Add message when user tries to divide by 0
+// 4. Add keyboard support
