@@ -91,4 +91,7 @@ operatorButtons.forEach(button => {
 
 equalButton.addEventListener('click', () => {
     prepare();
+    if (currentOperator === undefined) {
+        resetScreen = true;
+    }
 })
