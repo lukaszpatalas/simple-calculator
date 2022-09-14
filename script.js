@@ -59,7 +59,7 @@ const reset = function () {
 const chooseOperator = function (operator) {
     if (currentOperator !== undefined && operatorClickedAgain === false) {
         prepare();
-    } 
+    }
     firstNumber = lowerDisplay.textContent;
     currentOperator = operator;
     upperDisplay.innerText = firstNumber + " " + currentOperator;
@@ -68,7 +68,7 @@ const chooseOperator = function (operator) {
 
 const prepare = function () {
     secondNumber = lowerDisplay.textContent;
-    lowerDisplay.textContent = operate(currentOperator, parseFloat(firstNumber), parseFloat(secondNumber));
+    lowerDisplay.textContent = Math.round(operate(currentOperator, parseFloat(firstNumber), parseFloat(secondNumber)) * 1000) / 1000;
     currentOperator = undefined;
 }
 
