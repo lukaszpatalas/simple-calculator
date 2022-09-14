@@ -3,10 +3,12 @@ const operatorButtons = document.querySelectorAll('.operator');
 const lowerDisplay = document.querySelector('.lowerDisplay');
 const upperDisplay = document.querySelector('.upperDisplay');
 const equalButton = document.querySelector('.equal');
+
 let firstNumber = '';
 let secondNumber = '';
 let currentOperator = undefined;
 let resetScreen = false;
+let operatorClickedAgain = false;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -55,23 +57,31 @@ const reset = function () {
 }
 
 const chooseOperator = function (operator) {
-    if (secondNumber !== '') {
-        operate(currentOperator, parseFloat(secondNumber), parseFloat(firstNumber));
-    }
+    if (currentOperator !== undefined && operatorClickedAgain === false) {
+        prepare();
+    } 
     firstNumber = lowerDisplay.textContent;
     currentOperator = operator;
     upperDisplay.innerText = firstNumber + " " + currentOperator;
     resetScreen = true;
 }
 
+const prepare = function () {
+    secondNumber = lowerDisplay.textContent;
+    lowerDisplay.textContent = operate(currentOperator, parseFloat(firstNumber), parseFloat(secondNumber));
+    currentOperator = undefined;
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
+        operatorClickedAgain = false;
     })
 })
 
 operatorButtons.forEach(button => {
     button.addEventListener('click', () => {
         chooseOperator(button.innerText);
+        operatorClickedAgain = true;
     })
 })
