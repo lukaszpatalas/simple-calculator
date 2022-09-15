@@ -1,8 +1,8 @@
-const numberButtons = document.querySelectorAll('.number');
-const operatorButtons = document.querySelectorAll('.operator');
+const numberButtons = document.querySelectorAll('[number-button]');
+const operatorButtons = document.querySelectorAll('[operator-button]');
 const lowerDisplay = document.querySelector('.lowerDisplay');
 const upperDisplay = document.querySelector('.upperDisplay');
-const equalButton = document.querySelector('.equal');
+const equalButton = document.querySelector('[equal-button]');
 
 let firstNumber = '';
 let secondNumber = '';
