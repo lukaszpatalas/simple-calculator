@@ -3,6 +3,9 @@ const operatorButtons = document.querySelectorAll('[operator-button]');
 const lowerDisplay = document.querySelector('#lowerDisplay');
 const upperDisplay = document.querySelector('#upperDisplay');
 const equalButton = document.querySelector('[equal-button]');
+const clearButton = document.querySelector('#clear');
+const deleteButton = document.querySelector('#delete');
+
 
 let firstNumber = '';
 let secondNumber = '';
