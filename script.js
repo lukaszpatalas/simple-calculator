@@ -75,6 +75,16 @@ const prepare = function () {
     currentOperator = undefined;
 }
 
+const clear = function () {
+    lowerDisplay.textContent = '0';
+    upperDisplay.textContent = '';
+    firstNumber = '';
+    secondNumber = '';
+    currentOperator = undefined;
+    resetScreen = false;
+    operatorClickedAgain = false;
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
@@ -100,4 +110,3 @@ equalButton.addEventListener('click', () => {
 // 2. Add functionality to delete button
 // 3. Add message when user tries to divide by 0
 // 4. Add keyboard support
-// 5. Change button classes to html attributes
