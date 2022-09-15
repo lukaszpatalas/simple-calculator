@@ -12,6 +12,7 @@ let secondNumber = '';
 let currentOperator = undefined;
 let resetScreen = false;
 let operatorClickedAgain = false;
+let clickedZero = false;
 
 const add = function (num1, num2) {
     return num1 + num2;
@@ -60,19 +61,30 @@ const reset = function () {
 }
 
 const chooseOperator = function (operator) {
-    if (currentOperator !== undefined && operatorClickedAgain === false) {
+    if (currentOperator !== undefined && operatorClickedAgain === false && clickedZero === false) {
         prepare();
     }
-    firstNumber = lowerDisplay.textContent;
-    currentOperator = operator;
-    upperDisplay.innerText = firstNumber + " " + currentOperator;
+    if (lowerDisplay.textContent === "0" && upperDisplay.textContent.length !== 0) {
+        currentOperator = operator;
+        upperDisplay.innerText = firstNumber + " " + currentOperator;
+    } else {
+        firstNumber = lowerDisplay.textContent;
+        currentOperator = operator;
+        upperDisplay.innerText = firstNumber + " " + currentOperator;
+    }
     resetScreen = true;
+    clickedZero = false;
 }
 
 const prepare = function () {
     if (currentOperator === undefined) return;
     if (resetScreen === true) return;
     secondNumber = lowerDisplay.textContent;
+    if (secondNumber === "0") {
+        alert("You can`t divide number by 0.");
+        clickedZero = true;
+        return;
+    }
     lowerDisplay.textContent = Math.round(operate(currentOperator, parseFloat(firstNumber), parseFloat(secondNumber)) * 1000) / 1000;
     upperDisplay.textContent = firstNumber + " " + currentOperator + " " + secondNumber + " " + "=";
     currentOperator = undefined;
@@ -127,6 +139,6 @@ deleteButton.addEventListener('click', () => {
 })
 
 // 1. Add functionality to clear button *** DONE ***
-// 2. Add functionality to delete button
+// 2. Add functionality to delete button *** DONE ***
 // 3. Add message when user tries to divide by 0
 // 4. Add keyboard support
