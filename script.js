@@ -109,6 +109,10 @@ equalButton.addEventListener('click', () => {
     }
 })
 
+clearButton.addEventListener('click', () => {
+    clear();
+})
+
 // 1. Add functionality to clear button
 // 2. Add functionality to delete button
 // 3. Add message when user tries to divide by 0
