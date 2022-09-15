@@ -89,12 +89,12 @@ const clear = function () {
 }
 
 const deleteNumber = function () {
-    if (lowerDisplay.textContent.toString().length === 0) {
-        lowerDisplay.textContent = 0;
-    }
     lowerDisplay.textContent = lowerDisplay.textContent
         .toString()
         .slice(0, -1);
+    if (lowerDisplay.textContent.length === 0) {
+        lowerDisplay.textContent = 0;
+    }
 }
 
 numberButtons.forEach(button => {
@@ -120,6 +120,10 @@ equalButton.addEventListener('click', () => {
 
 clearButton.addEventListener('click', () => {
     clear();
+})
+
+deleteButton.addEventListener('click', () => {
+    deleteNumber();
 })
 
 // 1. Add functionality to clear button *** DONE ***
