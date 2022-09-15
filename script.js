@@ -100,3 +100,4 @@ equalButton.addEventListener('click', () => {
 // 2. Add functionality to delete button
 // 3. Add message when user tries to divide by 0
 // 4. Add keyboard support
+// 5. Change button classes to html attributes
