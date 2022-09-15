@@ -88,6 +88,15 @@ const clear = function () {
     operatorClickedAgain = false;
 }
 
+const deleteNumber = function () {
+    if (lowerDisplay.textContent.toString().length === 0) {
+        lowerDisplay.textContent = 0;
+    }
+    lowerDisplay.textContent = lowerDisplay.textContent
+        .toString()
+        .slice(0, -1);
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.innerText);
@@ -113,7 +122,7 @@ clearButton.addEventListener('click', () => {
     clear();
 })
 
-// 1. Add functionality to clear button
+// 1. Add functionality to clear button *** DONE ***
 // 2. Add functionality to delete button
 // 3. Add message when user tries to divide by 0
 // 4. Add keyboard support
