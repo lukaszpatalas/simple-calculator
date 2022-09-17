@@ -81,7 +81,7 @@ const prepare = function () {
     if (resetScreen === true) return;
     secondNumber = lowerDisplay.textContent;
     if (secondNumber === "0") {
-        alert("You can`t divide number by 0.");
+        alert("You can`t divide number by 0!");
         clickedZero = true;
         return;
     }
@@ -143,3 +143,4 @@ deleteButton.addEventListener('click', () => {
 // 2. Add functionality to delete button *** DONE ***
 // 3. Add message when user tries to divide by 0 *** DONE ***
 // 4. Add keyboard support
+// 5. Add support for enter
