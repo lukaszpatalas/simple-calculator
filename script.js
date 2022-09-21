@@ -165,9 +165,3 @@ document.addEventListener('keydown', (event) => {
         }
     }
 }, false);
-
-// 1. Add functionality to clear button *** DONE ***
-// 2. Add functionality to delete button *** DONE ***
-// 3. Add message when user tries to divide by 0 *** DONE ***
-// 4. Add keyboard support
-// 5. Add support for enter
