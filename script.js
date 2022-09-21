@@ -139,6 +139,13 @@ deleteButton.addEventListener('click', () => {
     deleteNumber();
 })
 
+document.addEventListener('keydown', (event) => {
+    var name = event.key;
+    var code = event.code;
+    // Alert the key name and key code on keydown
+    alert(`Key pressed ${name} \r\n Key code value: ${code}`);
+  }, false);
+
 // 1. Add functionality to clear button *** DONE ***
 // 2. Add functionality to delete button *** DONE ***
 // 3. Add message when user tries to divide by 0 *** DONE ***
