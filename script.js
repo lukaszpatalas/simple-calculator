@@ -140,11 +140,31 @@ deleteButton.addEventListener('click', () => {
 })
 
 document.addEventListener('keydown', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    alert(`Key pressed ${name} \r\n Key code value: ${code}`);
-  }, false);
+    let button = event.key;
+    const key = document.querySelector(`button[data-key="${button}"]`);
+    if (!key && button !== 'Enter') {
+        return;
+    }
+    else {
+        if (button === 'Enter') {
+            prepare();
+            if (currentOperator === undefined) {
+                resetScreen = true;
+            }
+        } else if (key.hasAttribute('number-button')) {
+            appendNumber(key.innerText);
+            operatorClickedAgain = false;
+        } else if (key.hasAttribute('operator-button')) {
+            chooseOperator(key.innerText);
+            operatorClickedAgain = true;
+        } else if (key.hasAttribute('equal-button')) {
+            prepare();
+            if (currentOperator === undefined) {
+                resetScreen = true;
+            }
+        }
+    }
+}, false);
 
 // 1. Add functionality to clear button *** DONE ***
 // 2. Add functionality to delete button *** DONE ***
