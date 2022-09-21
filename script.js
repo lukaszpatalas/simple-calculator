@@ -80,7 +80,7 @@ const prepare = function () {
     if (currentOperator === undefined) return;
     if (resetScreen === true) return;
     secondNumber = lowerDisplay.textContent;
-    if (secondNumber === "0") {
+    if (secondNumber === "0" && currentOperator === "÷") {
         alert("You can`t divide number by 0!");
         clickedZero = true;
         return;
