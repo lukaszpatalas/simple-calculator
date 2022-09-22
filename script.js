@@ -139,29 +139,30 @@ deleteButton.addEventListener('click', () => {
     deleteNumber();
 })
 
-document.addEventListener('keydown', (event) => {
-    let button = event.key;
-    const key = document.querySelector(`button[data-key="${button}"]`);
-    if (!key && button !== 'Enter') {
-        return;
+window.addEventListener('keydown', handleKeyboardInput);
+
+function handleKeyboardInput(e) {
+    if (e.key >= 0 && e.key <= 9 || e.key === '.') {
+        appendNumber(e.key);
+        operatorClickedAgain = false;
     }
-    else {
-        if (button === 'Enter') {
-            prepare();
-            if (currentOperator === undefined) {
-                resetScreen = true;
-            }
-        } else if (key.hasAttribute('number-button')) {
-            appendNumber(key.innerText);
-            operatorClickedAgain = false;
-        } else if (key.hasAttribute('operator-button')) {
-            chooseOperator(key.innerText);
-            operatorClickedAgain = true;
-        } else if (key.hasAttribute('equal-button')) {
-            prepare();
-            if (currentOperator === undefined) {
-                resetScreen = true;
-            }
+    if (e.key === '=' || e.key === 'Enter') {
+        prepare();
+        if (currentOperator === undefined) {
+            resetScreen = true;
         }
+    }9
+    if (e.key === 'Backspace') deleteNumber()
+    if (e.key === 'Escape') clear()
+    if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        chooseOperator(convertOperator(e.key));
+        operatorClickedAgain = true;
     }
-}, false);
+}
+
+function convertOperator(keyboardOperator) {
+    if (keyboardOperator === '/') return '÷'
+    if (keyboardOperator === '*') return '×'
+    if (keyboardOperator === '-') return '−'
+    if (keyboardOperator === '+') return '+'
+}
