@@ -29,14 +29,12 @@ body {
 
 .upperDisplay {
     height: 30px;
-    border: 1px solid black;
     margin: 0;
-    padding: 5px 10px 0 0;
+    padding: 15px 15px 0 0;
 }
 
 .lowerDisplay {
     height: 60px;
-    border: 1px solid black;
     margin: 0;
-    padding: 25px 10px 0 0;
+    padding: 30px 15px 0 0;
 }
