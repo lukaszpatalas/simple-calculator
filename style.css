@@ -2,19 +2,20 @@
     box-sizing: border-box;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
 }
 
 .container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.calculator {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
