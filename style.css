@@ -13,3 +13,11 @@ body {
     position: fixed;
     bottom: 0;
 }
+
+.container {
+    border: 1px solid black;
+}
+
+.display {
+    border: 1px solid black;
+}

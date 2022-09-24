@@ -147,20 +147,19 @@ document.addEventListener('keydown', (event) => {
         return;
     }
     else {
-        if (button === 'Escape') {
-            clear();
-        } if (button === 'Backspace') {
-            deleteNumber();
-        }
+        if (button === 'Escape') clear();
+        if (button === 'Backspace') deleteNumber();
         if (button === 'Enter' || key.hasAttribute('equal-button')) {
             prepare();
             if (currentOperator === undefined) {
                 resetScreen = true;
             }
-        } if (key.hasAttribute('number-button')) {
+        }
+        if (key.hasAttribute('number-button')) {
             appendNumber(key.innerText);
             operatorClickedAgain = false;
-        } if (key.hasAttribute('operator-button')) {
+        }
+        if (key.hasAttribute('operator-button')) {
             chooseOperator(key.innerText);
             operatorClickedAgain = true;
         }
