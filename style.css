@@ -38,3 +38,9 @@ body {
     margin: 0;
     padding: 30px 15px 0 0;
 }
+
+.calculation {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
