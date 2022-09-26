@@ -104,7 +104,7 @@ a:hover {
 }
 
 .calcButton:hover {
-    background-color: #BBDEFB;
+    background-color: #E8E8E8;
 }
 
 .clearButton {
@@ -113,4 +113,12 @@ a:hover {
 
 .deleteButton {
     background-color: #FF5252;
+}
+
+.clearButton:hover {
+    background-color: #51ADF6;
+}
+
+.deleteButton:hover {
+    background-color: #FF8585;
 }
