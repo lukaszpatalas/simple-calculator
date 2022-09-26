@@ -73,6 +73,25 @@ body {
     margin-top: auto;
 }
 
+
+.github-icon {
+    transition: 0.5s;
+}
+
+.github-icon:hover {
+    transform: rotate(360deg) scale(1.25);
+    transition: 0.5s;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .calcButton {
     padding: 15px;
 }
