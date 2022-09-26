@@ -22,7 +22,7 @@ body {
 
 .container {
     height: 90vh;
-    min-height: 500px;
+    min-height: 475px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,5 +74,5 @@ body {
 }
 
 .calcButton {
-    padding: 10px;
+    padding: 15px;
 }
