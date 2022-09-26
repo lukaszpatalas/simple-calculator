@@ -30,17 +30,19 @@ body {
 }
 
 .calculator {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     padding: 15px;
     width: 475px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .display {
-    border: 1px solid black;
     text-align: right;
     margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 .upperDisplay {
@@ -69,4 +71,8 @@ body {
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+.calcButton {
+    padding: 10px;
 }
