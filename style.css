@@ -47,7 +47,6 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     background-color: #f8f9fb;
-    font-size: 1.5rem;
     word-wrap: break-word;
     word-break: break-all;
 }
@@ -56,12 +55,14 @@ body {
     min-height: 35px;
     margin: 0;
     padding: 15px 15px 0 0;
+    font-size: 1.5rem;
 }
 
 .lowerDisplay {
     min-height: 70px;
     margin: 0;
     padding: 30px 15px 0 0;
+    font-size: 2rem;
 }
 
 .calculation {
