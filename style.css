@@ -11,6 +11,7 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #f8f9fb;;
 }
 
 html,
@@ -36,26 +37,29 @@ body {
     width: 475px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #BDBDBD;
+    background-color: #354259;
 }
 
 .display {
     text-align: right;
+    min-height: 105px;
     margin-bottom: 10px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #FFFFFF;
+    background-color: #f8f9fb;
     font-size: 1.5rem;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .upperDisplay {
-    height: 35px;
+    min-height: 35px;
     margin: 0;
     padding: 15px 15px 0 0;
 }
 
 .lowerDisplay {
-    height: 70px;
+    min-height: 70px;
     margin: 0;
     padding: 30px 15px 0 0;
 }
@@ -97,7 +101,7 @@ a:hover {
 
 .calcButton {
     padding: 15px;
-    background-color: #FFFFFF;
+    background-color: #f8f9fb;
     border: 1px solid black;
     border-radius: 5px;
     font-size: 1.5rem;
@@ -108,11 +112,11 @@ a:hover {
 }
 
 .clearButton {
-    background-color: #2196F3;
+    background-color: #319EF4;
 }
 
 .deleteButton {
-    background-color: #FF5252;
+    background-color: #FF6363;
 }
 
 .clearButton:hover {
